@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tra cứu khóa học & lịch học</title>
+  <meta name="description" content="Tra cứu thông tin khóa học, lịch khai giảng và lịch học từng lớp.">
+  <meta property="og:title" content="Tra cứu khóa học & lịch học">
+  <meta property="og:description" content="Xem khóa học sắp khai giảng, học phí và lịch học từng lớp.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="brand" href="#/">Tra cứu khóa học</a>
+      <nav class="tabs" aria-label="Điều hướng">
+        <a href="#/" data-tab="courses">Khóa học</a>
+        <a href="#/lich" data-tab="schedule">Lịch học</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="app" aria-live="polite">
+    <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+  </main>
+
+  <footer class="wrap foot">
+    <span id="updated"></span>
+    <button id="refresh" type="button" class="link">Làm mới</button>
+  </footer>
+
+  <dialog id="drawer" aria-label="Chi tiết khóa học"></dialog>
+  <div id="toast" role="status"></div>
+
+  <script src="data.sample.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
