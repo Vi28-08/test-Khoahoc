@@ -8,7 +8,7 @@
     CACHE_KEY: 'kh_cache_v1',
     MEET_KEY: 'kh_meet_v1',
     STALE_MS: 60000,          // dữ liệu cũ hơn 60 giây thì tải lại ngầm
-    GRACE_DAYS: 3             // quá N ngày kể từ khai giảng => "học video"
+    GRACE_DAYS: 7             // quá N ngày kể từ khai giảng => "học video"
   };
 
   const VN = 7 * 3600e3;
