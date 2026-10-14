@@ -128,7 +128,7 @@
     const d = dayDiff(todayISO(), c.start);
     if (d < 0) return { key: 'soon', label: 'Sắp khai giảng', note: d === -1 ? 'Ngày mai' : 'còn ' + (-d) + ' ngày' };
     if (d < CONFIG.GRACE_DAYS) return { key: 'live', label: 'Đang học', note: 'còn nhận ghi danh' };
-    return { key: 'video', label: 'Khai giảng – học video', note: '' };
+    return { key: 'video', label: 'Khai giảng', note: '' };
   }
   const STATUS_ORDER = { soon: 0, live: 1, video: 2 };
 
