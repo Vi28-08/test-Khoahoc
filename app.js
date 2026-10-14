@@ -267,7 +267,7 @@
   }
 
   function classBox(k) {
-    const st = classStatus(k), zalo = safeUrl(k.zalo);
+   const st = classStatus(k), zalo = safeUrl(k.zalo), course = S.cById.get(k.courseId) || {};
     return h('div', { class: 'cls-box' },
       h('div', { class: 'card-top' }, h('b', null, k.label || 'Lớp'), h('span', { class: 'badge ' + st.key }, st.label), st.note && h('span', { class: 'hint' }, st.note)),
       h('div', null, 'Khai giảng: ' + fmtDate(k.start)),
