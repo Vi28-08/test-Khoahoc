@@ -238,7 +238,7 @@
         : h('p', { class: 'hint' }, 'Chưa có lớp mở. Vui lòng theo dõi thông báo.'),
       h('div', { class: 'actions' },
         h('a', { class: 'btn', href: detail }, 'Chi tiết'),
-        zalo && h('a', { class: 'btn primary', href: zalo, target: '_blank', rel: 'noopener' }, 'Đăng ký Zalo')));
+        zalo && h('a', { class: 'btn primary', href: zalo, target: '_blank', rel: 'noopener' }, 'Nhóm ghi danh Zalo')));
   }
 
   /* ---------- chi tiết khóa học (dialog) ---------- */
