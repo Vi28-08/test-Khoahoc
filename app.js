@@ -316,8 +316,8 @@
       h('div', { class: 'meta' }, [k.pattern, k.mode, k.teacher && 'GV: ' + k.teacher].filter(Boolean).join(' · ')),
       k.location && h('div', { class: 'meta' }, 'Địa điểm: ', h('a', { href: mapsUrl(k.location), target: '_blank', rel: 'noopener' }, k.location)),
       h('div', { class: 'row' },
-        zalo && h('a', { class: 'btn primary sm', href: zalo, target: '_blank', rel: 'noopener' }, 'Nhóm Zalo'),
-        sessions.length && h('button', { class: 'btn sm', type: 'button', onclick: () => downloadICS(k, c, sessions) }, 'Tải lịch (.ics)'),
+        /*zalo && h('a', { class: 'btn primary sm', href: zalo, target: '_blank', rel: 'noopener' }, 'Nhóm Zalo'),
+        sessions.length && h('button', { class: 'btn sm', type: 'button', onclick: () => downloadICS(k, c, sessions) }, 'Tải lịch (.ics)'),*/
         h('button', {
           class: 'btn sm', type: 'button', onclick: async () => {
             try { await navigator.clipboard.writeText(location.href); toast('Đã sao chép link lịch lớp này'); } catch (e) { toast('Hãy sao chép link trên thanh địa chỉ'); }
