@@ -276,6 +276,9 @@
       k.teacher && h('div', null, 'Giảng viên: ' + k.teacher),
       k.location && h('div', null, 'Địa điểm: ', h('a', { href: mapsUrl(k.location), target: '_blank', rel: 'noopener' }, k.location)),
       h('div', { class: 'actions' },
+           course.fee > 0 && h('button', { class: 'btn primary', type: 'button', onclick: () => window.openRegister({
+              apiUrl: CONFIG.API_URL, classId: k.id, title: (course.name || '') + ' — ' + (k.label || k.id), fee: course.fee
+            }) }, 'Đăng ký & thanh toán'),
         h('a', { class: 'btn primary', href: '#/lich/' + encodeURIComponent(k.id) }, 'Xem lịch học'),
         zalo && h('a', { class: 'btn', href: zalo, target: '_blank', rel: 'noopener' }, 'Đăng ký Zalo')));
   }
