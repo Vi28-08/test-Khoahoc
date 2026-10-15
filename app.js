@@ -4,7 +4,7 @@
   'use strict';
 
   const CONFIG = {
-    API_URL: 'https://script.google.com/macros/s/AKfycbwHKAdy9fsawswpeMpLoPZTov9vcoS4DkBHBsAylJGgfU-TNXr0HRevFR0tQD1NpRnq/exec',              // dán URL Web App của Apps Script vào đây
+    API_URL: 'https://script.google.com/macros/s/AKfycbxbZ1LF1q2cryIdpuBjgexeOcsT3G6tyNiScr3jfMpJ0PPWqZrMzISSLE1fboj3pmBx/exec',              // dán URL Web App của Apps Script vào đây
     CACHE_KEY: 'kh_cache_v1',
     MEET_KEY: 'kh_meet_v1',
     STALE_MS: 60000,          // dữ liệu cũ hơn 60 giây thì tải lại ngầm
