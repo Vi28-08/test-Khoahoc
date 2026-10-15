@@ -1,0 +1,14 @@
+#regDlg .reg-form{display:grid;gap:6px}
+#regDlg .reg-form label{font-weight:600;margin-top:6px}
+#regDlg input{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff;color:inherit}
+#regDlg .reg-trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#regDlg .reg-err{color:var(--off);font-size:.92rem;min-height:1.2em;margin:4px 0}
+#regDlg .qr{text-align:center}
+#regDlg .qr img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+#regDlg .pay-box{display:grid;gap:8px}
+#regDlg .pay-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--bg);border-radius:10px;padding:8px 12px}
+#regDlg .pay-val{word-break:break-word}
+#regDlg .pay-val.strong{font-weight:700;font-size:1.05rem;color:var(--brand-d)}
+#regDlg .warn{background:var(--soon-bg);border-radius:10px;padding:8px 12px;margin:0;font-size:.92rem}
+#regDlg .btn{width:100%}
+#regDlg .pay-row .btn{width:auto;flex:none}
