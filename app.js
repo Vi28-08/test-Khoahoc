@@ -1,5 +1,4 @@
-/* Tra cứu khóa học & lịch học — vanilla JS, không phụ thuộc thư viện.
-   Dữ liệu: Google Sheets -> Apps Script (JSON). Để trống API_URL để chạy bằng dữ liệu mẫu. */
+
 (() => {
   'use strict';
 
@@ -260,7 +259,7 @@
         h('button', { class: 'x', type: 'button', 'aria-label': 'Đóng', onclick: () => dlg().close() }, '×')),
       h('div', { class: 'dlg-body' },
         h('dl', { class: 'kv' }, pairs.map(p => [h('dt', null, p[0]), h('dd', null, p[1])])),
-        link && h('a', { class: 'btn', href: link, target: '_blank', rel: 'noopener' }, 'Xem thông tin chi tiết khóa học'),
+        link && h('a', { class: 'btn', href: link, target: '_blank', rel: 'noopener' }, 'Xem thông tin khóa học'),
         h('h3', null, 'Các lớp đang mở'),
         classesOf(c.id).length ? classesOf(c.id).map(classBox) : h('p', { class: 'hint' }, 'Chưa có lớp mở.')));
     if (!dlg().open) dlg().showModal();
