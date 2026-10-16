@@ -178,7 +178,7 @@
         h('h1', null, 'Khóa học'),
         h('div', { class: 'toolbar' },
           h('input', {
-            type: 'search', placeholder: 'Tìm khóa học… (gõ không dấu cũng được)', value: S.q, 'aria-label': 'Tìm khóa học',
+            type: 'search', placeholder: 'Tìm khóa học… ', value: S.q, 'aria-label': 'Tìm khóa học',
             oninput: debounce(e => { S.q = e.target.value; updateList(); }, 120)
           }),
           h('div', { class: 'filters' },
