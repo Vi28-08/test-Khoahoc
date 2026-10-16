@@ -1,9 +1,8 @@
-
 (() => {
   'use strict';
 
   const CONFIG = {
-    API_URL: 'https://script.google.com/macros/s/AKfycbxbZ1LF1q2cryIdpuBjgexeOcsT3G6tyNiScr3jfMpJ0PPWqZrMzISSLE1fboj3pmBx/exec',              // dán URL Web App của Apps Script vào đây
+    API_URL: 'https://script.google.com/macros/s/AKfycbxbZ1LF1q2cryIdpuBjgexeOcsT3G6tyNiScr3jfMpJ0PPWqZrMzISSLE1fboj3pmBx/exec',
     CACHE_KEY: 'kh_cache_v1',
     MEET_KEY: 'kh_meet_v1',
     STALE_MS: 60000,          // dữ liệu cũ hơn 60 giây thì tải lại ngầm
@@ -164,6 +163,18 @@
   }
 
   /* ---------- trang khóa học ---------- */
+  function hero() {
+    return h('section', { class: 'hero' },
+      h('h1', null, 'Khóa học kinh tế & kinh doanh gắn với thực tiễn'),
+      h('p', null, 'Trung tâm Đào tạo, Nghiên cứu và Tư vấn Kinh tế (CENTREC) – Đại học Cần Thơ: đào tạo ngắn hạn, thiết kế khóa riêng cho doanh nghiệp, nghiên cứu ứng dụng và tư vấn kinh tế – kinh doanh.'),
+      h('ul', { class: 'pills' },
+        ['Khóa ngắn hạn thiết kế sẵn', 'Khóa riêng theo nhu cầu', 'Nghiên cứu & khảo sát thị trường', 'Tư vấn kinh tế – kinh doanh']
+          .map(t => h('li', null, t))),
+      h('div', { class: 'stats' },
+        [['15+ năm', 'hoạt động'], ['Hàng trăm', 'khóa đào tạo'], ['Hàng nghìn', 'học viên được cấp chứng chỉ, chứng nhận']]
+          .map(s => h('div', null, h('b', null, s[0]), h('span', null, s[1])))));
+  }
+
   function renderCourses() {
     const app = $('#app');
     if (app.dataset.page !== 'courses' || S.dirty) {
@@ -175,7 +186,8 @@
       }, h('option', { value: '' }, label), opts.map(o => h('option', { value: o[0], selected: S[key] === o[0] }, o[1])));
 
       app.replaceChildren(
-        h('h1', null, 'Khóa học'),
+        hero(),
+        h('h2', null, 'Danh sách khóa học'),
         h('div', { class: 'toolbar' },
           h('input', {
             type: 'search', placeholder: 'Tìm khóa học… ', value: S.q, 'aria-label': 'Tìm khóa học',
@@ -266,7 +278,7 @@
   }
 
   function classBox(k) {
-   const st = classStatus(k), zalo = safeUrl(k.zalo), course = S.cById.get(k.courseId) || {};
+    const st = classStatus(k), zalo = safeUrl(k.zalo), course = S.cById.get(k.courseId) || {};
     return h('div', { class: 'cls-box' },
       h('div', { class: 'card-top' }, h('b', null, k.label || 'Lớp'), h('span', { class: 'badge ' + st.key }, st.label), st.note && h('span', { class: 'hint' }, st.note)),
       h('div', null, 'Khai giảng: ' + fmtDate(k.start)),
@@ -275,9 +287,11 @@
       k.teacher && h('div', null, 'Giảng viên: ' + k.teacher),
       k.location && h('div', null, 'Địa điểm: ', h('a', { href: mapsUrl(k.location), target: '_blank', rel: 'noopener' }, k.location)),
       h('div', { class: 'actions' },
-           course.fee > 0 && h('button', { class: 'btn primary', type: 'button', onclick: () => window.openRegister({
-              apiUrl: CONFIG.API_URL, classId: k.id, title: (course.name || '') + ' — ' + (k.label || k.id), fee: course.fee
-            }) }, 'Đăng ký & thanh toán'),
+        course.fee > 0 && h('button', {
+          class: 'btn primary', type: 'button', onclick: () => window.openRegister({
+            apiUrl: CONFIG.API_URL, classId: k.id, title: (course.name || '') + ' — ' + (k.label || k.id), fee: course.fee
+          })
+        }, 'Đăng ký & thanh toán'),
         h('a', { class: 'btn primary', href: '#/lich/' + encodeURIComponent(k.id) }, 'Xem lịch học'),
         zalo && h('a', { class: 'btn', href: zalo, target: '_blank', rel: 'noopener' }, 'Đăng ký Zalo')));
   }
@@ -345,7 +359,7 @@
         h('div', { class: 'big' }, wday(next.date) + ', ' + fmtDate(next.date) + ' · ' + next.start + '–' + next.end),
         h('div', null, 'Buổi ' + next.no + (next.topic ? ': ' + next.topic : '')),
         h('div', { class: 'meta' }, [next.teacher && 'GV: ' + next.teacher, next.room && 'Phòng: ' + next.room].filter(Boolean).join(' · ')),
-        next.note && h('div', { class: 'note', style: 'color:var(--changed)' }, next.note),
+        next.note && h('div', { class: 'note', style: 'color:var(--warn)' }, next.note),
         h('div', { class: 'row' }, meetButton(k, next, redraw, live), gcalLink(c, k, next))));
     }
     if (changes.length) {
